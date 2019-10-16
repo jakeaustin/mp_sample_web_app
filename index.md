@@ -1,3 +1,8 @@
+<div id="add-to-cart">Add-to-cart event</div>
+
+
+
+
 ## Welcome to GitHub Pages
 
 You can use the [editor on GitHub](https://github.com/jakeaustin/mp_sample_web_app/edit/master/index.md) to maintain and preview the content for your website in Markdown files.
