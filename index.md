@@ -64,6 +64,7 @@
         jQuery('#logout').css('background-color': 'red');
         jQuery('#logout').disabled = true;
         jQuery('#login input[type="submit"]').disabled = false;
+        jQuery('#userinfo input[type="submit"]').disabled = true;
       });
       // login form
       jQuery(document).on('click','#login input[type="submit"]',function() {
@@ -83,6 +84,7 @@
             jQuery('#logout').css('background-color': 'green');
             jQuery('#logout').disabled = false;
             jQuery('#login input[type="submit"]').disabled = true;
+            jQuery('#userinfo input[type="submit"]').disabled = false;
           };
           mParticle.Identity.login(loginRequest, loginCallback);
       });
@@ -136,7 +138,7 @@
         <label for="gender">Male</label><br>
         <input type="radio" class="gender-f" name="gender" value="female">
         <label for="gender">Female</label><br>
-        <input type="submit" value="Update">
+        <input type="submit" value="Update" disabled>
     </form>
     </div>
     <div style="clear:both" align="center">
