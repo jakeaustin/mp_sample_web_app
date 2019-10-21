@@ -38,14 +38,13 @@
       });
 
       // user form
-      jQuery("#user-form").bind('ajax:complete', function() {
+      jQuery(document).on('click','#user-form input[type="submit"]',function() {
           var loginRequest = {
             userIdentities: {
               email: jQuery('#user-form #email').val()
             }
           };
           var loginCallback = function(result) { 
-            debugger;
             if (result.getUser()) { 
               result.getUser().setUserAttribute('$FirstName', jQuery('#first_name').val());
               result.getUser().setUserAttribute('$LastName', jQuery('#last_name').val());
@@ -55,26 +54,7 @@
             } 
           };
           mParticle.Identity.login(loginRequest, loginCallback);
-     });
-      // jQuery(document).on('submit','#user-form',function() {
-      //   debugger;
-      //     var loginRequest = {
-      //       userIdentities: {
-      //         email: jQuery('#user-form #email').val()
-      //       }
-      //     };
-      //     var loginCallback = function(result) { 
-      //       debugger;
-      //       if (result.getUser()) { 
-      //         result.getUser().setUserAttribute('$FirstName', jQuery('#first_name').val());
-      //         result.getUser().setUserAttribute('$LastName', jQuery('#last_name').val());
-      //         result.getUser().setUserAttribute('$Age', jQuery('#age').val());
-      //         result.getUser().setUserAttribute('$Gender', jQuery('input[name="gender"]:checked').val());
-      //         result.getUser().setUserAttribute('Nickname', jQuery('#nickname').val());
-      //       } 
-      //     };
-      //     mParticle.Identity.login(loginRequest, loginCallback);
-      // });
+      });
     </script> 
     <!-- End mP forwarding -->
   </head>
