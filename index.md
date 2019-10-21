@@ -66,7 +66,7 @@
         var user = mParticle.Identity.getCurrentUser();
         var userConsentState = user.getConsentState();
         debugger;
-        if(userConsentState) {
+        if(userConsentState.getGDPRConsentState().location_collection) {
           // remove consent
           userConsentState.removeGDPRConsentState("location_collection");
           user.setConsentState(userConsentState);
