@@ -63,11 +63,11 @@
         mParticle.Identity.logout({}, logoutCallback);
         jQuery('#logout').css('background-color': 'red');
         jQuery('#logout').disabled = true;
-        jQuery('#login input[type="submit"]').disabled = false;
-        jQuery('#userinfo input[type="submit"]').disabled = true;
+        jQuery('#login button').disabled = false;
+        jQuery('#userinfo button').disabled = true;
       });
       // login form
-      jQuery(document).on('click','#login input[type="submit"]',function() {
+      jQuery(document).on('click','#login button',function() {
           var loginRequest = {
             userIdentities: {
               email: jQuery('#login .email').val()
@@ -83,13 +83,13 @@
             } 
             jQuery('#logout').css('background-color': 'green');
             jQuery('#logout').disabled = false;
-            jQuery('#login input[type="submit"]').disabled = true;
-            jQuery('#userinfo input[type="submit"]').disabled = false;
+            jQuery('#login button').disabled = true;
+            jQuery('#userinfo button').disabled = false;
           };
           mParticle.Identity.login(loginRequest, loginCallback);
       });
       // userinfo form
-      jQuery(document).on('click','#userinfo input[type="submit"]',function() {
+      jQuery(document).on('click','#userinfo button',function() {
           var modifyRequest = {
             userIdentities: {}
           };
@@ -124,7 +124,7 @@
         <label for="gender">Male</label><br>
         <input type="radio" class="gender-f" name="gender" value="female">
         <label for="gender">Female</label><br>
-        <input type="submit" value="Login">
+        <button>Login</button>
       </form>
     </div>
     <div style="float:right">
@@ -138,7 +138,7 @@
         <label for="gender">Male</label><br>
         <input type="radio" class="gender-f" name="gender" value="female">
         <label for="gender">Female</label><br>
-        <input type="submit" value="Update" disabled>
+        <button disabled>Update</button>
     </form>
     </div>
     <div style="clear:both" align="center">
