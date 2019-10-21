@@ -25,6 +25,12 @@
     <!-- End mP web SDK -->
     <!-- listeners to forward button clicks to mP events -->
     <script>
+      // initial page view event when snippet loads
+      window.mParticle.ready(
+        function() {
+          console.log('mP loaded');
+        }
+      );
       jQuery(document).on('click','.button',function() {
         console.log('clicked id:' + jQuery(this).attr('id'));
       });
@@ -36,6 +42,12 @@
     <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WW62FCM"
     height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <!-- End Google Tag Manager (noscript) -->
+    <form id="user-form" style="background-color: #ccc">
+      <input id="email" placeholder="email@test.com">
+      <br>
+      <input type="submit" value="Submit">
+    </form>
+    <br>
     <div id="add-to-cart" class="button">Add-to-cart event</div>
     <div id="purchase-button" class="button">purchase event</div>
     <div id="remove-from-cart" class="button">remove-from-cart event</div>
