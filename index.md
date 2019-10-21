@@ -61,8 +61,9 @@
           } 
         };
         mParticle.Identity.logout({}, logoutCallback);
-        jQuery('#logout').css('background-color': 'red');
-        jQuery('#login input[type="submit"]').disabled = true;
+        jQuery('#logout-box').css('background-color': 'red');
+        jQuery('#logout').disabled = true;
+        jQuery('#login input[type="submit"]').disabled = false;
       });
       // login form
       jQuery(document).on('click','#login input[type="submit"]',function() {
@@ -79,8 +80,9 @@
               result.getUser().setUserAttribute('$Gender', jQuery('#login input[name="gender"]:checked').val());
               result.getUser().setUserAttribute('Nickname', jQuery('#login .nickname').val());
             } 
-            jQuery('#logout').css('background-color': 'green');
-            jQuery('#login input[type="submit"]').disabled = false;
+            jQuery('#logout-box').css('background-color': 'green');
+            jQuery('#logout').disabled = false;
+            jQuery('#login input[type="submit"]').disabled = true;
           };
           mParticle.Identity.login(loginRequest, loginCallback);
       });
@@ -104,8 +106,8 @@
     <!-- End mP forwarding -->
   </head>
   <body>
-    <input id="logout" style="background-color:red" disabled>
-      Logout
+    <div id="logout-box" style="background-color:red">
+    <button id="logout" disabled>Logout</button>
     </div>
     <br><br>
     <div style="float:left">
