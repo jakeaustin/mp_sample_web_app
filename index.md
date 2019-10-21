@@ -64,13 +64,12 @@
         );
 
         var user = mParticle.Identity.getCurrentUser();
-        var consentState = user.getConsentState();
-
+        var userConsentState = user.getConsentState();
         debugger;
-        if(consentState) {
+        if(userConsentState) {
           // remove consent
-          consentState.removeGDPRConsentState("location_collection");
-          user.setConsentState(consentState);
+          userConsentState.removeGDPRConsentState("location_collection");
+          user.setConsentState(userConsentState);
           jQuery('#consent').css('background-color', 'red');
         } else {
           var consentState = mParticle.Consent.createConsentState();
