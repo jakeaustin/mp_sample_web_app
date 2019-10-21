@@ -45,6 +45,7 @@
             }
           };
           var loginCallback = function(result) { 
+            debugger;
             if (result.getUser()) { 
               result.getUser().setUserAttribute('$FirstName', jQuery('#first_name').val());
               result.getUser().setUserAttribute('$LastName', jQuery('#last_name').val());
