@@ -39,6 +39,7 @@
 
       // user form
       jQuery(document).on('submit','#user-form',function() {
+        debugger;
           var loginRequest = {
             userIdentities: {
               email: jQuery('#user-form #email').val()
