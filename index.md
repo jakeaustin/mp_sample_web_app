@@ -26,20 +26,22 @@
     <script>
       // event button handler
       jQuery(document).on('click','.button',function() {
-        switch jQuery(this).attr('id') {
+        var doubleRoom = mParticle.eCommerce.createProduct(
+            'Double Room - Econ Rate',
+            'econ-1', 
+            100.00, 
+            4
+        );
+        // Get the cart
+        var cart = mParticle.Identity.getCurrentUser().getCart();
+        switch (jQuery(this).attr('id')) {
           case 'add-to-cart':
-            // Get the cart
-            var cart = mParticle.Identity.getCurrentUser().getCart();
-            // Add products to the cart
-            var doubleRoom = mParticle.eCommerce.createProduct(
-                'Double Room - Econ Rate',
-                'econ-1', 
-                100.00, 
-                4
-            );
             cart.add(doubleRoom, true);
             break;
-          case: 'remove-from-cart':
+          case 'remove-from-cart':
+            cart.remove(doubleRoom, true);
+            break;
+          default:
             break;
         }
       });
