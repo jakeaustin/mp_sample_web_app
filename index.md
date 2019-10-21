@@ -55,7 +55,6 @@
 
       // consent auth
       jQuery(document).on('click','#consent',function() {
-        debugger;
         var location_collection_consent = mParticle.Consent.createGDPRConsent(
             true, // Consented
             Date.now(), // Timestamp
@@ -64,33 +63,24 @@
             "IDFA:"+mParticle.Store.deviceId // Hardware ID
         );
 
-        var parental_consent = mParticle.Consent.createGDPRConsent(
-            false, // Consented
-            Date.now(), // Timestamp
-            "test_parental_consent_agreement", // Document
-            "257 Park Ave", // Location
-            "IDFA:"+mParticle.Store.deviceId // Hardware ID
-        );
-
         var user = mParticle.Identity.getCurrentUser();
         var consentState = user.getConsentState();
-        
-        debugger;
 
-        if(consentState.getGDPRConsentState().location_collection.Consented) {
+        debugger;
+        if(consentState) {
           // remove consent
-          consentState.removeGDPRConsentState("parental");
+          consentState.removeGDPRConsentState("location_collection");
           user.setConsentState(consentState);
           jQuery('#consent').css('background-color', 'red');
         } else {
           var consentState = mParticle.Consent.createConsentState();
           consentState.addGDPRConsentState("location_collection", location_collection_consent);
-          consentState.addGDPRConsentState("parental", parental_consent);
           user.setConsentState(consentState);
           jQuery('#consent').css('background-color', 'green');
           jQuery('#consent').prop('given', true);
         }
       });
+
       // logout
       jQuery(document).on('click','#logout',function() {
         var logoutCallback = function(result) { 
@@ -147,8 +137,8 @@
   </head>
   <body>
     <div>
-    <button type='button' id="logout" style="color:white;background-color:red" disabled>Logout</button>
-    <button type='button' id="consent" style="color:white;background-color:red">Consent Given for tracking</button>
+      <button type='button' id="logout" style="color:white;background-color:red" disabled>Logout</button>
+      <button type='button' id="consent" style="color:white;background-color:red">Consent Given for tracking</button>
     </div>
     <br><br>
     <div style="float:left">
