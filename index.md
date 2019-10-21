@@ -56,12 +56,12 @@
 
       // user form
       jQuery(document).on('submit','#user-form',function() {
-          var identityRequest = {
+          var loginRequest = {
             userIdentities: {
               email: jQuery('#user-form #email').val()
             }
           };
-          var identityCallback = function(result) { 
+          var loginCallback = function(result) { 
             debugger;
             if (result.getUser()) { 
               result.getUser().setUserAttribute('$FirstName', jQuery('#first_name').val());
@@ -71,7 +71,7 @@
               result.getUser().setUserAttribute('Nickname', jQuery('#nickname').val());
             } 
           };
-          mParticle.Identity.login(identityRequest, identityCallback);
+          mParticle.Identity.login(loginRequest, loginCallback);
       });
     </script> 
     <!-- End mP forwarding -->
