@@ -31,21 +31,27 @@
           console.log('mP loaded');
         }
       );
+
+      // event button handler
       jQuery(document).on('click','.button',function() {
         console.log('clicked id:' + jQuery(this).attr('id'));
       });
+
+      // user form
       jQuery(document).on('submit','#user-form',function() {
         window.mParticle = {
           config: {
             identifyRequest: {
               userIdentities: {
-                  email: jQuery('#user-form #email').val(),
+                  email: jQuery('#user-form #email').val()
                   // customerid: '123456'
               }
             },
             identityCallback: function(result) {
                 //This is the quickest way to acquire a reference to the user object
                 //this callback is invoked on every page load
+                console.log('in identityCallback');
+                debugger;
                 if (result.getUser()) {
                     result.getUser().setUserAttribute('$FirstName', jQuery('#first_name').val());
                     result.getUser().setUserAttribute('$LastName', jQuery('#last_name').val());
