@@ -55,6 +55,7 @@
 
       // consent auth
       jQuery(document).on('click','#consent',function() {
+        debugger;
         var location_collection_consent = mParticle.Consent.createGDPRConsent(
             true, // Consented
             Date.now(), // Timestamp
@@ -73,8 +74,10 @@
 
         var user = mParticle.Identity.getCurrentUser();
         var consentState = user.getConsentState();
+        
         debugger;
-        if(consentState) {
+
+        if(consentState.getGDPRConsentState().location_collection.Consented) {
           // remove consent
           consentState.removeGDPRConsentState("parental");
           user.setConsentState(consentState);
