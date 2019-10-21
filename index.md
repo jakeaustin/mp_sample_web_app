@@ -28,25 +28,8 @@
       // initial page view event when snippet loads
       window.mParticle.ready(
         function() {
-          window.mParticle = {
-            config: {
-              identifyRequest: {
-                userIdentities: {
-                    email: 'example@example.com',
-                    customerid: '123456'
-                }
-              },
-              identityCallback: function(result) {
-                  //This is the quickest way to acquire a reference to the user object
-                  //this callback is invoked on every page load
-                  debugger;
-                  if (result.getUser()) {
-                      debugger;
-                  }
-              }
-            }
-          };
-        }
+          console.log('in mP ready');
+        }   
       );
 
       // event button handler
