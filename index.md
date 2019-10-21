@@ -61,10 +61,10 @@
           } 
         };
         mParticle.Identity.logout({}, logoutCallback);
-        jQuery('#logout').css('background-color': 'red');
-        jQuery('#logout').disabled = true;
-        jQuery('#login button').disabled = false;
-        jQuery('#userinfo button').disabled = true;
+        jQuery('#logout').css('background-color', 'red');
+        jQuery('#logout').prop('disabled', true);
+        jQuery('#login button').prop('disabled', false);
+        jQuery('#userinfo button').prop('disabled', true);
       });
       // login form
       jQuery(document).on('click','#login button',function() {
@@ -81,10 +81,10 @@
               result.getUser().setUserAttribute('$Gender', jQuery('#login input[name="gender"]:checked').val());
               result.getUser().setUserAttribute('Nickname', jQuery('#login .nickname').val());
             } 
-            jQuery('#logout').css('background-color': 'green');
-            jQuery('#logout').disabled = false;
-            jQuery('#login button').disabled = true;
-            jQuery('#userinfo button').disabled = false;
+            jQuery('#logout').css('background-color', 'green');
+            jQuery('#logout').prop('disabled', false);
+            jQuery('#login button').prop('disabled', true);
+            jQuery('#userinfo button').prop('disabled', false);
           };
           mParticle.Identity.login(loginRequest, loginCallback);
       });
