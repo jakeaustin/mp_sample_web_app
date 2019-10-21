@@ -28,7 +28,24 @@
       // initial page view event when snippet loads
       window.mParticle.ready(
         function() {
-          console.log('mP loaded');
+          window.mParticle = {
+            config: {
+              identifyRequest: {
+                userIdentities: {
+                    email: 'example@example.com',
+                    customerid: '123456'
+                }
+              },
+              identityCallback: function(result) {
+                  //This is the quickest way to acquire a reference to the user object
+                  //this callback is invoked on every page load
+                  debugger;
+                  if (result.getUser()) {
+                      debugger;
+                  }
+              }
+            }
+          };
         }
       );
 
@@ -39,30 +56,22 @@
 
       // user form
       jQuery(document).on('submit','#user-form',function() {
-        debugger;
-        window.mParticle = {
-          config: {
-            identifyRequest: {
-              userIdentities: {
-                  email: jQuery('#user-form #email').val()
-                  // customerid: '123456'
-              }
-            },
-            identityCallback: function(result) {
-                //This is the quickest way to acquire a reference to the user object
-                //this callback is invoked on every page load
-                console.log('in identityCallback');
-                debugger;
-                if (result.getUser()) {
-                    result.getUser().setUserAttribute('$FirstName', jQuery('#first_name').val());
-                    result.getUser().setUserAttribute('$LastName', jQuery('#last_name').val());
-                    result.getUser().setUserAttribute('$Age', jQuery('#age').val());
-                    result.getUser().setUserAttribute('$Gender', jQuery('input[name="gender"]:checked').val());
-                    result.getUser().setUserAttribute('Nickname', jQuery('#nickname').val());
-                }
+          var identityRequest = {
+            userIdentities: {
+              email: jQuery('#user-form #email').val()
             }
-          }
-        };
+          };
+          var identityCallback = function(result) { 
+            debugger;
+            if (result.getUser()) { 
+              result.getUser().setUserAttribute('$FirstName', jQuery('#first_name').val());
+              result.getUser().setUserAttribute('$LastName', jQuery('#last_name').val());
+              result.getUser().setUserAttribute('$Age', jQuery('#age').val());
+              result.getUser().setUserAttribute('$Gender', jQuery('input[name="gender"]:checked').val());
+              result.getUser().setUserAttribute('Nickname', jQuery('#nickname').val());
+            } 
+          };
+          mParticle.Identity.login(identityRequest, identityCallback);
       });
     </script> 
     <!-- End mP forwarding -->
@@ -82,7 +91,7 @@
       <label for="gender">Male</label><br>
       <input type="radio" id="gender-f" name="gender" value="female">
       <label for="gender">Female</label><br>
-      <input type="submit" value="Submit">
+      <input type="submit" value="Create Account">
     </form>
     <br>
     <div id="add-to-cart" class="button">Add-to-cart event</div>
