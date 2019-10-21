@@ -12,29 +12,36 @@
     <!-- End JQ -->
     <!-- mP web SDK -->
     <script type="text/javascript">
-    window.mParticle = {
-      config: {
-        isDevelopmentMode: true //switch to false (or remove) for production
-      }
-    };
-
-    (
-      function(t){window.mParticle=window.mParticle||{};mParticle.EventType={Unknown:0,Navigation:1,Location:2,Search:3,Transaction:4,UserContent:5,UserPreference:6,Social:7,Other:8};window.mParticle.eCommerce={Cart:{}};window.mParticle.Identity={};window.mParticle.config=window.mParticle.config||{};window.mParticle.config.rq=[];window.mParticle.config.snippetVersion=2.1;window.mParticle.ready=function(t){window.mParticle.config.rq.push(t)};function e(e,o){return function(){if(o){e=o+"."+e}var t=Array.prototype.slice.call(arguments);t.unshift(e);window.mParticle.config.rq.push(t)}}var o=["endSession","logError","logEvent","logForm","logLink","logPageView","setSessionAttribute","setAppName","setAppVersion","setOptOut","setPosition","startNewSession","startTrackingLocation","stopTrackingLocation"];var n=["setCurrencyCode","logCheckout"];var i=["identify","login","logout","modify"];o.forEach(function(t){window.mParticle[t]=e(t)});n.forEach(function(t){window.mParticle.eCommerce[t]=e(t,"eCommerce")});i.forEach(function(t){window.mParticle.Identity[t]=e(t,"Identity")});var r=document.createElement("script");r.type="text/javascript";r.async=true;r.src=("https:"==document.location.protocol?"https://jssdkcdns":"http://jssdkcdn")+".mparticle.com/js/v2/"+t+"/mparticle.js";var c=document.getElementsByTagName("script")[0];c.parentNode.insertBefore(r,c);}
-    )("us1-8343aa0c8f16e74b9176320270fc92da");
-  </script>
+      window.mParticle = {
+        config: {
+          isDevelopmentMode: true //switch to false (or remove) for production
+        }
+      };
+      (
+        function(t){window.mParticle=window.mParticle||{};mParticle.EventType={Unknown:0,Navigation:1,Location:2,Search:3,Transaction:4,UserContent:5,UserPreference:6,Social:7,Other:8};window.mParticle.eCommerce={Cart:{}};window.mParticle.Identity={};window.mParticle.config=window.mParticle.config||{};window.mParticle.config.rq=[];window.mParticle.config.snippetVersion=2.1;window.mParticle.ready=function(t){window.mParticle.config.rq.push(t)};function e(e,o){return function(){if(o){e=o+"."+e}var t=Array.prototype.slice.call(arguments);t.unshift(e);window.mParticle.config.rq.push(t)}}var o=["endSession","logError","logEvent","logForm","logLink","logPageView","setSessionAttribute","setAppName","setAppVersion","setOptOut","setPosition","startNewSession","startTrackingLocation","stopTrackingLocation"];var n=["setCurrencyCode","logCheckout"];var i=["identify","login","logout","modify"];o.forEach(function(t){window.mParticle[t]=e(t)});n.forEach(function(t){window.mParticle.eCommerce[t]=e(t,"eCommerce")});i.forEach(function(t){window.mParticle.Identity[t]=e(t,"Identity")});var r=document.createElement("script");r.type="text/javascript";r.async=true;r.src=("https:"==document.location.protocol?"https://jssdkcdns":"http://jssdkcdn")+".mparticle.com/js/v2/"+t+"/mparticle.js";var c=document.getElementsByTagName("script")[0];c.parentNode.insertBefore(r,c);}
+      )("us1-8343aa0c8f16e74b9176320270fc92da");
+    </script>
     <!-- End mP web SDK -->
     <!-- listeners to forward button clicks to mP events -->
     <script>
-      // initial page view event when snippet loads
-      window.mParticle.ready(
-        function() {
-          console.log('in mP ready');
-        }   
-      );
-
       // event button handler
       jQuery(document).on('click','.button',function() {
-        console.log('clicked id:' + jQuery(this).attr('id'));
+        switch jQuery(this).attr('id') {
+          case 'add-to-cart':
+            // Get the cart
+            var cart = mParticle.Identity.getCurrentUser().getCart();
+            // Add products to the cart
+            var doubleRoom = mParticle.eCommerce.createProduct(
+                'Double Room - Econ Rate',
+                'econ-1', 
+                100.00, 
+                4
+            );
+            cart.add(doubleRoom, true);
+            break;
+          case: 'remove-from-cart':
+            break;
+        }
       });
 
       // login form
@@ -108,8 +115,8 @@
         <input type="submit" value="Update">
     </form>
     </div>
-    <br>
-    <div style="clear:both">
+    <div style="clear:both" align="center">
+      <br><br>
       <div id="add-to-cart" class="button">Add-to-cart event</div>
       <div id="purchase-button" class="button">purchase event</div>
       <div id="remove-from-cart" class="button">remove-from-cart event</div>
