@@ -39,6 +39,7 @@
 
       // user form
       jQuery(document).on('submit','#user-form',function() {
+        debugger;
         window.mParticle = {
           config: {
             identifyRequest: {
@@ -72,16 +73,15 @@
     height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <!-- End Google Tag Manager (noscript) -->
     <form id="user-form" style="background-color: #ccc">
-      <input id="email" placeholder="email@test.com">
-      <input id="first_name" placeholder="John">
-      <input id="last_name" placeholder="Smith">
-      <input id="age" placeholder="27">
-      <input id="nickname" placeholder="Young Slick">
+      <input id="email" placeholder="email@test.com"><br>
+      <input id="first_name" placeholder="John"><br>
+      <input id="last_name" placeholder="Smith"><br>
+      <input id="age" placeholder="27"><br>
+      <input id="nickname" placeholder="Young Febreezy"><br>
       <input type="radio" id="gender-m" name="gender" value="male" checked>
-      <label for="gender">Male</label>
+      <label for="gender">Male</label><br>
       <input type="radio" id="gender-f" name="gender" value="female">
-      <label for="gender">Female</label>
-      <br>
+      <label for="gender">Female</label><br>
       <input type="submit" value="Submit">
     </form>
     <br>
