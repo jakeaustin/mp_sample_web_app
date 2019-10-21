@@ -37,24 +37,39 @@
         console.log('clicked id:' + jQuery(this).attr('id'));
       });
 
-      // user form
-      jQuery(document).on('click','#user-form input[type="submit"]',function() {
+      // login form
+      jQuery(document).on('click','#login input[type="submit"]',function() {
           var loginRequest = {
             userIdentities: {
-              email: jQuery('#user-form #email').val()
+              email: jQuery('#login .email').val()
             }
           };
           var loginCallback = function(result) { 
-            debugger;
             if (result.getUser()) { 
-              result.getUser().setUserAttribute('$FirstName', jQuery('#first_name').val());
-              result.getUser().setUserAttribute('$LastName', jQuery('#last_name').val());
-              result.getUser().setUserAttribute('$Age', jQuery('#age').val());
-              result.getUser().setUserAttribute('$Gender', jQuery('input[name="gender"]:checked').val());
-              result.getUser().setUserAttribute('Nickname', jQuery('#nickname').val());
+              result.getUser().setUserAttribute('$FirstName', jQuery('#login .first_name').val());
+              result.getUser().setUserAttribute('$LastName', jQuery('#login .last_name').val());
+              result.getUser().setUserAttribute('$Age', jQuery('#login .age').val());
+              result.getUser().setUserAttribute('$Gender', jQuery('#login input[name="gender"]:checked').val());
+              result.getUser().setUserAttribute('Nickname', jQuery('#login .nickname').val());
             } 
           };
           mParticle.Identity.login(loginRequest, loginCallback);
+      });
+      // userinfo form
+      jQuery(document).on('click','#userinfo input[type="submit"]',function() {
+          var modifyRequest = {
+            userIdentities: {}
+          };
+          var modifyCallback = function(result) { 
+            if (result.getUser()) { 
+              result.getUser().setUserAttribute('$FirstName', jQuery('#userinfo .first_name').val());
+              result.getUser().setUserAttribute('$LastName', jQuery('#userinfo .last_name').val());
+              result.getUser().setUserAttribute('$Age', jQuery('#userinfo .age').val());
+              result.getUser().setUserAttribute('$Gender', jQuery('#userinfo input[name="gender"]:checked').val());
+              result.getUser().setUserAttribute('Nickname', jQuery('#userinfo .nickname').val());
+            } 
+          };
+          mParticle.Identity.modify(modifyRequest, modifyCallback);
       });
     </script> 
     <!-- End mP forwarding -->
@@ -64,18 +79,35 @@
     <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WW62FCM"
     height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <!-- End Google Tag Manager (noscript) -->
-    <form id="user-form" style="background-color: #ccc">
-      <input id="email" placeholder="email@test.com"><br>
-      <input id="first_name" placeholder="John"><br>
-      <input id="last_name" placeholder="Smith"><br>
-      <input id="age" placeholder="27"><br>
-      <input id="nickname" placeholder="Young Febreezy"><br>
-      <input type="radio" id="gender-m" name="gender" value="male" checked>
-      <label for="gender">Male</label><br>
-      <input type="radio" id="gender-f" name="gender" value="female">
-      <label for="gender">Female</label><br>
-      <input type="submit" value="Login">
+    <div style="float:left">
+      <h3>Login</h3>
+      <form id="login" style="background-color: #ccc">
+        <input class="email" placeholder="email@test.com"><br>
+        <input class="first_name" placeholder="John"><br>
+        <input class="last_name" placeholder="Smith"><br>
+        <input class="age" placeholder="27"><br>
+        <input class="nickname" placeholder="Young Febreezy"><br>
+        <input type="radio" class="gender-m" name="gender" value="male" checked>
+        <label for="gender">Male</label><br>
+        <input type="radio" class="gender-f" name="gender" value="female">
+        <label for="gender">Female</label><br>
+        <input type="submit" value="Login">
+      </form>
+    </div>
+    <div style="float:right">
+      <h3>Update Info</h3>
+      <form id="userinfo" style="background-color: #ccc">
+        <input class="first_name" placeholder="John"><br>
+        <input class="last_name" placeholder="Smith"><br>
+        <input class="age" placeholder="27"><br>
+        <input class="nickname" placeholder="Young Febreezy"><br>
+        <input type="radio" class="gender-m" name="gender" value="male" checked>
+        <label for="gender">Male</label><br>
+        <input type="radio" class="gender-f" name="gender" value="female">
+        <label for="gender">Female</label><br>
+        <input type="submit" value="Update">
     </form>
+    </div>
     <br>
     <div id="add-to-cart" class="button">Add-to-cart event</div>
     <div id="purchase-button" class="button">purchase event</div>
