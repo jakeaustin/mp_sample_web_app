@@ -41,6 +41,20 @@
           case 'remove-from-cart':
             cart.remove(doubleRoom, true);
             break;
+          case 'purchase':
+            var transactionAttributes = {
+                Id: 'foo-transaction-id',
+                Revenue: 430.00,
+                Tax: 30
+            };
+            mParticle.eCommerce.logPurchase(
+                transactionAttributes,
+                cart.getCartProducts(),
+                true
+            );
+            break;
+          case 'checkout':
+            break;
           default:
             break;
         }
@@ -120,7 +134,7 @@
     <div style="clear:both" align="center">
       <br><br>
       <div id="add-to-cart" class="button">Add-to-cart event</div>
-      <div id="purchase-button" class="button">purchase event</div>
+      <div id="purchase" class="button">purchase event</div>
       <div id="remove-from-cart" class="button">remove-from-cart event</div>
       <div id="checkout" class="button">checkout event</div>
     </div>
