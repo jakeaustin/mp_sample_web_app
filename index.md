@@ -109,7 +109,7 @@
   </head>
   <body>
     <div>
-    <button id="logout" style="background-color:red" disabled>Logout</button>
+    <button id="logout" style="color:white;background-color:red" disabled>Logout</button>
     </div>
     <br><br>
     <div style="float:left">
