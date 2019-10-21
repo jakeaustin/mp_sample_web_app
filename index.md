@@ -109,9 +109,11 @@
     </form>
     </div>
     <br>
-    <div id="add-to-cart" class="button">Add-to-cart event</div>
-    <div id="purchase-button" class="button">purchase event</div>
-    <div id="remove-from-cart" class="button">remove-from-cart event</div>
-    <div id="checkout" class="button">checkout event</div>
+    <div style="clear:both">
+      <div id="add-to-cart" class="button">Add-to-cart event</div>
+      <div id="purchase-button" class="button">purchase event</div>
+      <div id="remove-from-cart" class="button">remove-from-cart event</div>
+      <div id="checkout" class="button">checkout event</div>
+    </div>
   </body>
 </html>
