@@ -109,7 +109,7 @@
   </head>
   <body>
     <div>
-    <button id="logout" style="color:white;background-color:red" disabled>Logout</button>
+    <button type='button' id="logout" style="color:white;background-color:red" disabled>Logout</button>
     </div>
     <br><br>
     <div style="float:left">
@@ -124,7 +124,7 @@
         <label for="gender">Male</label><br>
         <input type="radio" class="gender-f" name="gender" value="female">
         <label for="gender">Female</label><br>
-        <button>Login</button>
+        <button type='button'>Login</button>
       </form>
     </div>
     <div style="float:right">
@@ -138,7 +138,7 @@
         <label for="gender">Male</label><br>
         <input type="radio" class="gender-f" name="gender" value="female">
         <label for="gender">Female</label><br>
-        <button disabled>Update</button>
+        <button type='button' disabled>Update</button>
     </form>
     </div>
     <div style="clear:both" align="center">
