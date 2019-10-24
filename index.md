@@ -65,7 +65,7 @@
 
         var user = mParticle.Identity.getCurrentUser();
         var userConsentState = user.getConsentState();
-        debugger;
+
         if(userConsentState.getGDPRConsentState().location_collection) {
           // remove consent
           userConsentState.removeGDPRConsentState("location_collection");
@@ -76,7 +76,6 @@
           consentState.addGDPRConsentState("location_collection", location_collection_consent);
           user.setConsentState(consentState);
           jQuery('#consent').css('background-color', 'green');
-          jQuery('#consent').prop('given', true);
         }
       });
 
@@ -137,7 +136,7 @@
   <body>
     <div>
       <button type='button' id="logout" style="color:white;background-color:red" disabled>Logout</button>
-      <button type='button' id="consent" style="color:white;background-color:red">Consent Given for tracking</button>
+      <button type='button' id="consent" style="color:white;background-color:red">Location Consent</button>
     </div>
     <br><br>
     <div style="float:left">
