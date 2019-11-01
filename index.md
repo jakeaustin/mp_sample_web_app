@@ -112,7 +112,7 @@
                 var previousIdentities = result.getPreviousUser().getUserIdentities().userIdentities;
               } catch(e) {}
               debugger;
-              if(typeof previousIdentities === "undefined" || !previousIdentities.email) {
+              if(typeof previousIdentities !== "undefined" && !previousIdentities.email) {
                 // alias anonymous state to login state
                 result.getUser().setUserAttributes(result.getPreviousUser().getAllUserAttributes());
 
