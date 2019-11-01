@@ -106,12 +106,18 @@
               result.getUser().setUserAttribute('$Age', jQuery('#login .age').val());
               result.getUser().setUserAttribute('$Gender', jQuery('#login input[name="gender"]:checked').val());
               result.getUser().setUserAttribute('Nickname', jQuery('#login .nickname').val());
-              // alias anonymous state to login state
-              result.getUser().setUserAttributes(result.getPreviousUser().getAllUserAttributes());
+              
+              // get prior identities
+              var previousIdentities = result.getPreviousUser().getUserIdentities().userIdentities;
+              debugger;
+              if(!previousIdentities.email) {
+                // alias anonymous state to login state
+                result.getUser().setUserAttributes(result.getPreviousUser().getAllUserAttributes());
 
-              // Create and send the alias request
-              var aliasRequest = mParticle.Identity.createAliasRequest(result.getPreviousUser(), result.getUser());
-              mParticle.Identity.aliasUsers(aliasRequest);
+                // Create and send the alias request
+                var aliasRequest = mParticle.Identity.createAliasRequest(result.getPreviousUser(), result.getUser());
+                mParticle.Identity.aliasUsers(aliasRequest);
+              }
             } 
             jQuery('#logout').css('background-color', 'green');
             jQuery('#logout').prop('disabled', false);
