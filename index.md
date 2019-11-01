@@ -46,7 +46,17 @@
                 true
             );
             break;
-          case 'checkout':
+          case 'identify-me-by-non-login-identifier':
+            var other_id = Math.random();
+            var loginRequest = {
+              userIdentities: {
+                Other: other_id
+              }
+            };
+          var loginCallback = function(result) { 
+            jQuery('#identify-me-by-non-login-identifier').text('<b>other id is: '+other_id+'</b>');
+          } 
+          mParticle.Identity.login(loginRequest, loginCallback);
             break;
           default:
             break;
@@ -187,7 +197,7 @@
       <div id="add-to-cart" class="button">Add-to-cart event</div>
       <div id="purchase" class="button">purchase event</div>
       <div id="remove-from-cart" class="button">remove-from-cart event</div>
-      <div id="checkout" class="button">checkout event</div>
+      <div id="identify-me-by-non-login-identifier" class="button">identify-me-by-non-login-identifier (other)</div>
     </div>
   </body>
 </html>
