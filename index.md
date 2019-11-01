@@ -108,7 +108,9 @@
               result.getUser().setUserAttribute('Nickname', jQuery('#login .nickname').val());
               
               // get prior identities
-              var previousIdentities = result.getPreviousUser().getUserIdentities().userIdentities;
+              try {
+                var previousIdentities = result.getPreviousUser().getUserIdentities().userIdentities;
+              } catch(e) {}
               debugger;
               if(!previousIdentities.email) {
                 // alias anonymous state to login state
