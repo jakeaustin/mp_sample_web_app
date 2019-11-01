@@ -47,10 +47,10 @@
             );
             break;
           case 'identify-me-by-non-login-identifier':
-            var other_id = Math.random();
+            var other_id = Math.random().toString();
             var loginRequest = {
               userIdentities: {
-                Other: other_id
+                other: other_id
               }
             };
           var loginCallback = function(result) { 
