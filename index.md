@@ -107,8 +107,7 @@
               result.getUser().setUserAttribute('$Gender', jQuery('#login input[name="gender"]:checked').val());
               result.getUser().setUserAttribute('Nickname', jQuery('#login .nickname').val());
               // alias anonymous state to login state
-              debugger;
-              result.getUser().setUserAttributes(result.getPreviousUser().getUserAttributes());
+              result.getUser().setUserAttributes(result.getPreviousUser().getAllUserAttributes());
 
               // Create and send the alias request
               var aliasRequest = mParticle.Identity.createAliasRequest(result.getPreviousUser(), result.getUser());
