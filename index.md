@@ -58,6 +58,14 @@
           } 
           mParticle.Identity.login(loginRequest, loginCallback);
             break;
+         case 'click-event':
+            // send custom click event
+            mParticle.logEvent(
+              'click',
+              mParticle.EventType.Other,
+              // {'category':'Destination Intro','title':'Paris'}
+            );
+            break;
           default:
             break;
         }
@@ -198,6 +206,7 @@
       <div id="purchase" class="button">purchase event</div>
       <div id="remove-from-cart" class="button">remove-from-cart event</div>
       <div id="identify-me-by-non-login-identifier" class="button">identify-me-by-non-login-identifier (other)</div>
+      <div id="click-event" class="button"> custom click event </div>
     </div>
   </body>
 </html>
