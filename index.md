@@ -65,7 +65,7 @@
               mParticle.EventType.Other,
               {
                  "factual_categories": "Social, Food and Dining, Restaurants, Sushi, Japanese",
-                 "factual_category_ids": “359, 366”,
+                 "factual_category_ids": "359, 366",
                  "visit_duration": "5087",
                  "factual_visit_country": "us",
                  "factual_visit_locality": "Bloomington",
