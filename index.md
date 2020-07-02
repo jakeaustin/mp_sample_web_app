@@ -67,6 +67,18 @@ window.NREUM||(NREUM={}),__nr_require=function(t,e,n){function r(n){if(!e[n]){va
           } 
           mParticle.Identity.login(loginRequest, loginCallback);
             break;
+         case 'identify-me-by-non-login-identifier-customer-id':
+            var customer_id = Math.random().toString();
+            var loginRequest = {
+              userIdentities: {
+                customer_id: customer_id
+              }
+            };
+          var loginCallback = function(result) { 
+            jQuery('#identify-me-by-non-login-identifier-customer-id').text('<b>customer id is: '+customer_id+'</b>');
+          } 
+          mParticle.Identity.login(loginRequest, loginCallback);
+            break;
          case 'categories-test':
             // send custom click event
             mParticle.logEvent(
@@ -223,6 +235,7 @@ window.NREUM||(NREUM={}),__nr_require=function(t,e,n){function r(n){if(!e[n]){va
       <div id="purchase" class="button">purchase event</div>
       <div id="remove-from-cart" class="button">remove-from-cart event</div>
       <div id="identify-me-by-non-login-identifier" class="button">identify-me-by-non-login-identifier (other)</div>
+      <div id="identify-me-by-non-login-identifier-customer-id" class="button">identify-me-by-non-login-identifier-customer-id</div>
       <div id="categories-test" class="button"> custom categories event </div>
     </div>
   </body>
