@@ -71,7 +71,7 @@ window.NREUM||(NREUM={}),__nr_require=function(t,e,n){function r(n){if(!e[n]){va
             var customer_id = Math.random().toString();
             var loginRequest = {
               userIdentities: {
-                customer_id: customer_id
+                customerid: customer_id
               }
             };
           var loginCallback = function(result) { 
