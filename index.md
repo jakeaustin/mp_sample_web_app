@@ -199,10 +199,14 @@ window.NREUM||(NREUM={}),__nr_require=function(t,e,n){function r(n){if(!e[n]){va
   <!-- End mP forwarding -->
 
   <script>
-    if (typeof newrelic !== "undefined") {
-      debugger;
-        var mpid = mParticle.Identity.getCurrentUser().getMPID();
-        newrelic.setCustomAttribute("mpid", mpid);
+    function waitForElement(){
+        if(typeof mParticle !== "undefined" && typeof newrelic !== "undefined"){
+            var mpid = mParticle.Identity.getCurrentUser().getMPID();
+            newrelic.setCustomAttribute("mpid", mpid);
+        }
+        else{
+            setTimeout(waitForElement, 250);
+        }
     }
   </script>
   </head>
