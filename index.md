@@ -199,7 +199,7 @@ window.NREUM||(NREUM={}),__nr_require=function(t,e,n){function r(n){if(!e[n]){va
   <!-- End mP forwarding -->
 
   <script>
-    function waitForElement(){
+    function waitForSDKs(){
         if(typeof mParticle !== "undefined" && typeof newrelic !== "undefined"){
           console.log('fetching mpid + sending to new relic')
             var mpid = mParticle.Identity.getCurrentUser().getMPID();
@@ -208,9 +208,10 @@ window.NREUM||(NREUM={}),__nr_require=function(t,e,n){function r(n){if(!e[n]){va
           console.log('set custom attribute complete')
         }
         else{
-            setTimeout(waitForElement, 250);
+            setTimeout(waitForSDKs, 250);
         }
     }
+    waitForSDKs()
   </script>
   </head>
   <body>
