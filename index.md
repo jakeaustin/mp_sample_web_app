@@ -76,6 +76,10 @@ window.NREUM||(NREUM={}),__nr_require=function(t,e,n){function r(n){if(!e[n]){va
             };
           var loginCallback = function(result) { 
             jQuery('#identify-me-by-non-login-identifier-customer-id').text('<b>customer id is: '+customer_id+'</b>');
+            // set user attribute in new relic for same value
+            var mpid = mParticle.Identity.getCurrentUser().getMPID();
+            newrelic.setCustomAttribute("mpid", mpid);
+            //
           } 
           mParticle.Identity.login(loginRequest, loginCallback);
             break;
