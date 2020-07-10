@@ -201,8 +201,11 @@ window.NREUM||(NREUM={}),__nr_require=function(t,e,n){function r(n){if(!e[n]){va
   <script>
     function waitForElement(){
         if(typeof mParticle !== "undefined" && typeof newrelic !== "undefined"){
+          console.log('fetching mpid + sending to new relic')
             var mpid = mParticle.Identity.getCurrentUser().getMPID();
             newrelic.setCustomAttribute("mpid", mpid);
+            newrelic.interaction();
+          console.log('set custom attribute complete')
         }
         else{
             setTimeout(waitForElement, 250);
