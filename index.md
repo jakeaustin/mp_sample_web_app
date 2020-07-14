@@ -199,24 +199,21 @@ window.NREUM||(NREUM={}),__nr_require=function(t,e,n){function r(n){if(!e[n]){va
   <!-- End mP forwarding -->
 
   <script>
-    function waitForSDKs(){
+    function sendMpidToNewRelic(){
         if(typeof mParticle !== "undefined" && typeof newrelic !== "undefined"){
-          console.log('fetching mpid + sending to new relic')
             var mpid = mParticle.Identity.getCurrentUser().getMPID();
             newrelic.setCustomAttribute("mpid", mpid);
             newrelic.interaction();
-          console.log('set custom attribute complete')
         }
         else{
-            setTimeout(waitForSDKs, 250);
+            setTimeout(sendMpidToNewRelic, 250);
         }
     }
     document.onreadystatechange = function(e)
     {
         if (document.readyState === 'complete')
         {
-            debugger;
-            waitForSDKs()
+            sendMpidToNewRelic()
         }
     }    
   </script>
