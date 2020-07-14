@@ -211,7 +211,14 @@ window.NREUM||(NREUM={}),__nr_require=function(t,e,n){function r(n){if(!e[n]){va
             setTimeout(waitForSDKs, 250);
         }
     }
-    waitForSDKs()
+    document.onreadystatechange = function(e)
+    {
+        if (document.readyState === 'complete')
+        {
+            debugger;
+            waitForSDKs()
+        }
+    }    
   </script>
   </head>
   <body>
