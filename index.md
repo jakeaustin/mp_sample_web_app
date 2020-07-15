@@ -231,10 +231,10 @@ window.NREUM||(NREUM={}),__nr_require=function(t,e,n){function r(n){if(!e[n]){va
       <h3>Login</h3>
       <form id="login" style="background-color: #ccc">
         <input class="email" placeholder="email@test.com"><br>
-        <input class="first_name" placeholder="John"><br>
-        <input class="last_name" placeholder="Smith"><br>
-        <input class="age" placeholder="27"><br>
-        <input class="nickname" placeholder="Young Febreezy"><br>
+        <input class="first_name" placeholder="First Name"><br>
+        <input class="last_name" placeholder="Last Name"><br>
+        <input class="age" placeholder="30"><br>
+        <input class="nickname" placeholder="Nickname"><br>
         <input type="radio" class="gender-m" name="gender" value="male" checked>
         <label for="gender">Male</label><br>
         <input type="radio" class="gender-f" name="gender" value="female">
@@ -245,10 +245,10 @@ window.NREUM||(NREUM={}),__nr_require=function(t,e,n){function r(n){if(!e[n]){va
     <div style="float:right">
       <h3>Update Info</h3>
       <form id="userinfo" style="background-color: #ccc">
-        <input class="first_name" placeholder="John"><br>
-        <input class="last_name" placeholder="Smith"><br>
-        <input class="age" placeholder="27"><br>
-        <input class="nickname" placeholder="Young Febreezy"><br>
+        <input class="first_name" placeholder="First Name"><br>
+        <input class="last_name" placeholder="Last Name"><br>
+        <input class="age" placeholder="30"><br>
+        <input class="nickname" placeholder="Nickname"><br>
         <input type="radio" class="gender-m" name="gender" value="male" checked>
         <label for="gender">Male</label><br>
         <input type="radio" class="gender-f" name="gender" value="female">
@@ -258,12 +258,12 @@ window.NREUM||(NREUM={}),__nr_require=function(t,e,n){function r(n){if(!e[n]){va
     </div>
     <div style="clear:both" align="center">
       <br><br>
-      <div id="add-to-cart" class="button">Add-to-cart event</div>
-      <div id="purchase" class="button">purchase event</div>
-      <div id="remove-from-cart" class="button">remove-from-cart event</div>
-      <div id="identify-me-by-non-login-identifier" class="button">identify-me-by-non-login-identifier (other)</div>
-      <div id="identify-me-by-non-login-identifier-customer-id" class="button">identify-me-by-non-login-identifier-customer-id</div>
-      <div id="categories-test" class="button"> custom categories event </div>
+      <button id="add-to-cart" class="button">Add-to-cart event</button>
+      <button id="purchase" class="button">purchase event</button>
+      <button id="remove-from-cart" class="button">remove-from-cart event</button>
+      <button id="categories-test" class="button"> custom categories event </button>
+      <button id="identify-me-by-non-login-identifier" class="button">identify-me-by-non-login-identifier (other)</button>
+      <button id="identify-me-by-non-login-identifier-customer-id" class="button">identify-me-by-non-login-identifier-customer-id</button> 
     </div>
   </body>
 </html>
