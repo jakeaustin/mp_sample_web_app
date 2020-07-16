@@ -147,11 +147,12 @@ window.NREUM||(NREUM={}),__nr_require=function(t,e,n){function r(n){if(!e[n]){va
             email: jQuery('#login .email').val()
         };
         try {
-            var previousIdentities = result.getPreviousUser().getUserIdentities().userIdentities;
+            var identities = result.getCurrentUser().getUserIdentities().userIdentities;
         } catch(e) {}
-        if(typeof previousIdentities !== "undefined" && typeof previousIdentities.customerId !== "undefined") {
-          user_ids.customerId = previousIdentities.customerId;
+        if(typeof identities !== "undefined" && typeof identities.customerId !== "undefined") {
+          user_ids.customerId = identities.customerId;
         }
+        debugger;
         var loginRequest = {
           userIdentities: user_ids
         };
