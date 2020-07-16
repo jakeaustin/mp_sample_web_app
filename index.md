@@ -153,7 +153,7 @@ window.NREUM||(NREUM={}),__nr_require=function(t,e,n){function r(n){if(!e[n]){va
           user_ids.customerId = previousIdentities.customerId;
         }
         var loginRequest = {
-          userIdentities: user_ids;
+          userIdentities: user_ids
         };
         var loginCallback = function(result) { 
           if (result.getUser()) { 
