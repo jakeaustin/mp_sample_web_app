@@ -158,18 +158,18 @@ window.NREUM||(NREUM={}),__nr_require=function(t,e,n){function r(n){if(!e[n]){va
             result.getUser().setUserAttribute('$Gender', jQuery('#login input[name="gender"]:checked').val());
             result.getUser().setUserAttribute('Nickname', jQuery('#login .nickname').val());
             
-            // get prior identities
-            try {
-              var previousIdentities = result.getPreviousUser().getUserIdentities().userIdentities;
-            } catch(e) {}
-            if(typeof previousIdentities !== "undefined" && !previousIdentities.email) {
-              // alias anonymous state to login state
-              result.getUser().setUserAttributes(result.getPreviousUser().getAllUserAttributes());
+            // // get prior identities
+            // try {
+            //   var previousIdentities = result.getPreviousUser().getUserIdentities().userIdentities;
+            // } catch(e) {}
+            // if(typeof previousIdentities !== "undefined" && !previousIdentities.email) {
+            //   // alias anonymous state to login state
+            //   result.getUser().setUserAttributes(result.getPreviousUser().getAllUserAttributes());
 
-              // Create and send the alias request
-              var aliasRequest = mParticle.Identity.createAliasRequest(result.getPreviousUser(), result.getUser());
-              mParticle.Identity.aliasUsers(aliasRequest);
-            }
+            //   // Create and send the alias request
+            //   var aliasRequest = mParticle.Identity.createAliasRequest(result.getPreviousUser(), result.getUser());
+            //   mParticle.Identity.aliasUsers(aliasRequest);
+            // }
           } 
           jQuery('#logout').css('background-color', 'green');
           jQuery('#logout').prop('disabled', false);
