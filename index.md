@@ -147,10 +147,10 @@ window.NREUM||(NREUM={}),__nr_require=function(t,e,n){function r(n){if(!e[n]){va
             email: jQuery('#login .email').val()
         };
         try {
-            var identities = result.getCurrentUser().getUserIdentities().userIdentities;
+            var customer_id = mParticle.Identity.getCurrentUser().getUserIdentities().userIdentities.customerid;
         } catch(e) {}
-        if(typeof identities !== "undefined" && typeof identities.customerId !== "undefined") {
-          user_ids.customerId = identities.customerId;
+        if(typeof customer_id !== "undefined") {
+          user_ids.customerId = customer_id;
         }
         debugger;
         var loginRequest = {
