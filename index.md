@@ -150,7 +150,7 @@ window.NREUM||(NREUM={}),__nr_require=function(t,e,n){function r(n){if(!e[n]){va
             var customer_id = mParticle.Identity.getCurrentUser().getUserIdentities().userIdentities.customerid;
         } catch(e) {}
         if(typeof customer_id !== "undefined") {
-          user_ids.customerId = customer_id;
+          user_ids.customerid = customer_id;
         }
         debugger;
         var loginRequest = {
