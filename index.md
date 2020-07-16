@@ -143,10 +143,17 @@ window.NREUM||(NREUM={}),__nr_require=function(t,e,n){function r(n){if(!e[n]){va
     });
     // login form
     jQuery(document).on('click','#login button',function() {
-        var loginRequest = {
-          userIdentities: {
+        var user_ids = {
             email: jQuery('#login .email').val()
-          }
+        };
+        try {
+            var previousIdentities = result.getPreviousUser().getUserIdentities().userIdentities;
+        } catch(e) {}
+        if(typeof previousIdentities !== "undefined" && typeof previousIdentities.customerId !== "undefined") {
+          user_ids.customerId = previousIdentities.customerId;
+        }
+        var loginRequest = {
+          userIdentities: user_ids;
         };
         var loginCallback = function(result) { 
           if (result.getUser()) { 
@@ -157,19 +164,6 @@ window.NREUM||(NREUM={}),__nr_require=function(t,e,n){function r(n){if(!e[n]){va
             result.getUser().setUserAttribute('$Age', jQuery('#login .age').val());
             result.getUser().setUserAttribute('$Gender', jQuery('#login input[name="gender"]:checked').val());
             result.getUser().setUserAttribute('Nickname', jQuery('#login .nickname').val());
-            
-            // // get prior identities
-            // try {
-            //   var previousIdentities = result.getPreviousUser().getUserIdentities().userIdentities;
-            // } catch(e) {}
-            // if(typeof previousIdentities !== "undefined" && !previousIdentities.email) {
-            //   // alias anonymous state to login state
-            //   result.getUser().setUserAttributes(result.getPreviousUser().getAllUserAttributes());
-
-            //   // Create and send the alias request
-            //   var aliasRequest = mParticle.Identity.createAliasRequest(result.getPreviousUser(), result.getUser());
-            //   mParticle.Identity.aliasUsers(aliasRequest);
-            // }
           } 
           jQuery('#logout').css('background-color', 'green');
           jQuery('#logout').prop('disabled', false);
