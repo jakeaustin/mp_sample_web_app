@@ -87,12 +87,11 @@ window.NREUM||(NREUM={}),__nr_require=function(t,e,n){function r(n){if(!e[n]){va
             'categories_test',
             mParticle.EventType.Other,
             {
-               "factual_categories": "Social, Food and Dining, Restaurants, Sushi, Japanese",
-               "factual_category_ids": "359, 366",
+               "categories": "Social, Food and Dining, Restaurants, Sushi, Japanese",
                "visit_duration": "5087",
-               "factual_visit_country": "us",
-               "factual_visit_locality": "Bloomington",
-               "factual_visit_region": "IN",
+               "visit_country": "us",
+               "visit_locality": "Bloomington",
+               "visit_region": "IN",
                "visit_name": "A Sushi Restaurant"
             }
           );
@@ -152,7 +151,6 @@ window.NREUM||(NREUM={}),__nr_require=function(t,e,n){function r(n){if(!e[n]){va
         if(typeof customer_id !== "undefined") {
           user_ids.customerid = customer_id;
         }
-        debugger;
         var loginRequest = {
           userIdentities: user_ids
         };
