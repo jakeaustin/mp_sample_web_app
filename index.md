@@ -3,6 +3,12 @@
     <!-- JQ for listener convenience -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <!-- End JQ -->
+    <!-- OneTrust Cookies Consent Notice start for jakeaust.in -->
+<script src="https://cdn.cookielaw.org/scripttemplates/otSDKStub.js"  type="text/javascript" charset="UTF-8" data-domain-script="4a2d6a35-9135-4b66-975a-206e6bcd2bb3-test" ></script>
+<script type="text/javascript">
+function OptanonWrapper() { }
+</script>
+<!-- OneTrust Cookies Consent Notice end for jakeaust.in -->
     <!-- mP web SDK -->
     <script type="text/javascript">
       window.mParticle = {
