@@ -120,7 +120,7 @@ window.NREUM||(NREUM={}),__nr_require=function(t,e,n){function r(n){if(!e[n]){va
       var user = mParticle.Identity.getCurrentUser();
       var userConsentState = user.getConsentState();
 
-      if(userConsentState.getGDPRConsentState().location_collection) {
+      if(userConsentState && userConsentState.getGDPRConsentState().location_collection) {
         // remove consent
         userConsentState.removeGDPRConsentState("location_collection");
         user.setConsentState(userConsentState);
