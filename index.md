@@ -41,11 +41,18 @@ function OptanonWrapper() { }
           100.00, 
           4
       );
+      var doubleRoom2 = mParticle.eCommerce.createProduct(
+          'Double Room - Lux Rate',
+          'lux-1', 
+          500.00, 
+          4
+      );
       // Get the cart
       var cart = mParticle.Identity.getCurrentUser().getCart();
       switch (jQuery(this).attr('id')) {
         case 'add-to-cart':
           cart.add(doubleRoom, true);
+          cart.add(doubleRoom2, true);
           break;
         case 'remove-from-cart':
           cart.remove(doubleRoom, true);
