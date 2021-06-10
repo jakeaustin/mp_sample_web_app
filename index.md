@@ -175,7 +175,7 @@ function OptanonWrapper() { }
             result.getUser().setUserAttribute('$FirstName', jQuery('#login .first_name').val());
             result.getUser().setUserAttribute('$LastName', jQuery('#login .last_name').val());
             result.getUser().setUserAttribute('$Age', jQuery('#login .age').val());
-            result.getUser().setUserAttribute('$Gender', jQuery('#login input[name="gender"]:checked').val());
+            result.getUser().setUserAttribute('$Gender', jQuery('#login .gender').val());
             result.getUser().setUserAttribute('Nickname', jQuery('#login .nickname').val());
           } 
           jQuery('#logout').css('background-color', 'green');
@@ -197,7 +197,7 @@ function OptanonWrapper() { }
             result.getUser().setUserAttribute('$FirstName', jQuery('#userinfo .first_name').val());
             result.getUser().setUserAttribute('$LastName', jQuery('#userinfo .last_name').val());
             result.getUser().setUserAttribute('$Age', jQuery('#userinfo .age').val());
-            result.getUser().setUserAttribute('$Gender', jQuery('#userinfo input[name="gender"]:checked').val());
+            result.getUser().setUserAttribute('$Gender', jQuery('#userinfo .gender').val());
             result.getUser().setUserAttribute('Nickname', jQuery('#userinfo .nickname').val());
           } 
         };
@@ -242,10 +242,7 @@ function OptanonWrapper() { }
         <input class="last_name" placeholder="Last Name"><br>
         <input class="age" placeholder="30"><br>
         <input class="nickname" placeholder="Nickname"><br>
-        <input type="radio" class="gender-m" name="gender" value="male" checked>
-        <label for="gender">Male</label><br>
-        <input type="radio" class="gender-f" name="gender" value="female">
-        <label for="gender">Female</label><br>
+        <input class="gender" placeholder="Prefer not to answer"><br>
         <button type='button'>Login</button>
       </form>
     </div>
@@ -256,10 +253,7 @@ function OptanonWrapper() { }
         <input class="last_name" placeholder="Last Name"><br>
         <input class="age" placeholder="30"><br>
         <input class="nickname" placeholder="Nickname"><br>
-        <input type="radio" class="gender-m" name="gender" value="male" checked>
-        <label for="gender">Male</label><br>
-        <input type="radio" class="gender-f" name="gender" value="female">
-        <label for="gender">Female</label><br>
+        <input class="gender" placeholder="Prefer not to answer"><br>
         <button type='button' disabled>Update</button>
     </form>
     </div>
