@@ -242,7 +242,7 @@ function OptanonWrapper() { }
         <input class="last_name" placeholder="Last Name"><br>
         <input class="age" placeholder="30"><br>
         <input class="nickname" placeholder="Nickname"><br>
-        <input class="gender" placeholder="Prefer not to answer"><br>
+        <input class="gender" placeholder="gender"><br>
         <button type='button'>Login</button>
       </form>
     </div>
@@ -253,7 +253,7 @@ function OptanonWrapper() { }
         <input class="last_name" placeholder="Last Name"><br>
         <input class="age" placeholder="30"><br>
         <input class="nickname" placeholder="Nickname"><br>
-        <input class="gender" placeholder="Prefer not to answer"><br>
+        <input class="gender" placeholder="gender"><br>
         <button type='button' disabled>Update</button>
     </form>
     </div>
